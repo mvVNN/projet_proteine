@@ -1,16 +1,5 @@
-# React + Vite
+Ce projet est une application web développée avec React et Vite. L’objectif est de générer automatiquement un tableau de besoins journaliers en protéines en fonction du poids et de l’objectif sportif choisi par l’utilisateur.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+L’idée du projet est simple : les besoins en protéines varient selon le poids de la personne et son objectif. L’utilisateur peut donc choisir un poids minimum, un poids maximum et le nombre de lignes à afficher. À partir de ces informations, l’application calcule automatiquemet les valeurs correspondante et affiche un tableau dynamique.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Les calcul sont fait en gramme par kg de poids corporel et par jour. Par exemple, pour une personne de 70 kg en prise de masse, les recommandations vont de 1,8 à 2,2 g/kg/jour, ce qui donne entre 126 get 154 g de protéines par jour. Toutes les valeurs sont calculés dynamiquement, rien n’est écrit en dur dans le tableau.
