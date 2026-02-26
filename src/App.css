@@ -1,0 +1,207 @@
+:root{
+  --bg: #06162f;
+  --card: #0b2346; 
+  --card2: #0a1c38
+  --border: rgba(255,255,255,0.10);
+
+  --text: #eaf2ff;
+  --muted: rgba(234,242,255,0.72);
+
+  --sky: #5cc8ff;
+  --sky2: #2aa8ff;
+  --yellow: #ffd24a;
+}
+
+.container{
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 24px 16px 32px;
+}
+
+.header h1{
+  margin: 0 0 6px;
+  font-size: clamp(28px, 3.5vw, 44px);
+  letter-spacing: -0.02em;
+}
+
+.subtitle{
+  margin: 0 0 10px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.card{
+  background: linear-gradient(180deg, rgba(11,35,70,0.92), rgba(10,28,56,0.92));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.cardHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.actions{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Boutons */
+.btn{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);               /* <- lisible */
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.05s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover{
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.btn:active{
+  transform: translateY(1px);
+}
+
+.btn:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn.primary{
+  background: linear-gradient(135deg, var(--sky2), var(--sky));
+  color: #04111f;
+  border-color: rgba(0,0,0,0.10);
+  font-weight: 700;
+}
+
+.btn.primary:hover{
+  filter: brightness(1.05);
+}
+
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* <- clé */
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.field span{
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+
+.field input{
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  outline: none;
+}
+
+.field input:focus{
+  border-color: rgba(92,200,255,0.55);
+  box-shadow: 0 0 0 3px rgba(92,200,255,0.15);
+}
+
+.objectifs{
+  margin-top: 14px;
+}
+
+.objectifs h3{
+  margin: 0 0 8px;
+}
+
+.chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  background: rgba(255,255,255,0.05);
+}
+
+.chip.on{
+  border-color: rgba(92,200,255,0.45);
+  background: rgba(92,200,255,0.10);
+}
+
+.chip input{
+  width: 16px;
+  height: 16px;
+  accent-color: var(--yellow); /* <- jaune */
+}
+
+.chip small{
+  color: var(--muted);
+}
+
+.errors{
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,210,74,0.35);
+  background: rgba(255,210,74,0.10);
+  color: var(--text);
+}
+
+.muted{
+  color: var(--muted);
+}
+
+/* Tableau : scroll uniquement dans le bloc (pas sur toute la page) */
+.tableWrap{
+  overflow-x: auto;
+  margin-top: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.02);
+}
+
+th, td{
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th{
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  position: sticky;
+  top: 0;
+}
+
+td{
+  color: rgba(234,242,255,0.90);
+}
