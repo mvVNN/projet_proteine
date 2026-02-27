@@ -50,18 +50,14 @@ function downloadCSV(filename, rows) {
 
 function escapeCSVCell(value) {
   const s = String(value ?? "");
-  // Si contient ; " ou saut de ligne => on entoure de guillemets et on échappe "
   if (/[;"\n\r]/.test(s)) return `"${s.replaceAll('"', '""')}"`;
   return s;
 }
 
 export default function App() {
-  // State (inputs)
   const [minWeight, setMinWeight] = useState(50);
   const [maxWeight, setMaxWeight] = useState(100);
   const [rows, setRows] = useState(6);
-
-  // Objectifs sélectionnés
   const [selected, setSelected] = useState(() => new Set(["sedentaire"]));
 
   const toggleObjective = (key) => {
@@ -73,7 +69,6 @@ export default function App() {
     });
   };
 
-  // Validation
   const errors = useMemo(() => {
     const list = [];
 
@@ -87,8 +82,6 @@ export default function App() {
     if (rows < 2) list.push("Le nombre de lignes doit être ≥ 2.");
     if (rows > 50) list.push("Le nombre de lignes doit être ≤ 50 (pour garder le tableau lisible).");
     if (selected.size === 0) list.push("Sélectionne au moins un objectif.");
-
-    // Bonus : éviter des valeurs extrêmes
     if (minWeight > 400 || maxWeight > 400) list.push("Poids très élevé (> 400 kg). Vérifie la saisie.");
 
     return list;
@@ -104,7 +97,6 @@ export default function App() {
     return generateWeights(minWeight, maxWeight, rows);
   }, [minWeight, maxWeight, rows, errors]);
 
-  // Construction des lignes CSV à partir du tableau affiché
   const buildCSVRows = () => {
     const header = ["Poids (kg)", ...selectedObjectives.map((o) => o.label)];
     const body = weights.map((w) => [
