@@ -9,7 +9,6 @@ const OBJECTIFS = [
   { key: "prise", label: "Prise de masse musculaire", min: 1.8, max: 2.2 },
 ];
 
-// Helpers
 const clamp = (n, min, max) => Math.min(Math.max(n, min), max);
 
 function toNumber(value, fallback) {
@@ -17,9 +16,6 @@ function toNumber(value, fallback) {
   return Number.isFinite(n) ? n : fallback;
 }
 
-/**
- * Génère N poids entre min et max inclus
- */
 function generateWeights(minW, maxW, rows) {
   if (rows <= 1) return [Math.round(minW)];
   const step = (maxW - minW) / (rows - 1);
@@ -32,7 +28,7 @@ function formatRange(gMin, gMax) {
 
 // Export CSV 
 function downloadCSV(filename, rows) {
-  // Ajout BOM UTF-8 pour Excel (accents OK)
+
   const BOM = "\uFEFF";
   const csv = BOM + rows.map((r) => r.map(escapeCSVCell).join(";")).join("\n");
   const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
